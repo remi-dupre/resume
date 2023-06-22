@@ -33,7 +33,6 @@
 \ifthenelse{\boolean{@singleordouble}}
     {\PassOptionsToClass{oneside}{scrartcl}}
     {\PassOptionsToClass{twoside}{scrartcl}}
-
 \LoadClass{scrartcl}
 
 
@@ -49,7 +48,7 @@
 \RequirePackage[skins]{tcolorbox}       % somehow required for tikz to work at all
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
-\RequirePackage{fontawesome}
+\RequirePackage{fontawesome5}
 \RequirePackage{academicons}
 
 
@@ -340,7 +339,7 @@
             \hspace{\dimexpr \marginleft+\marginright}%
             \@mainbar
         }{% if double layout, the highlight bar alternates
-            \ifthispageodd{% if the page is odd, the highlight bar is on the left (as is for single layout)
+            \Ifthispageodd{% if the page is odd, the highlight bar is on the left (as is for single layout)
                 \@highlightbar
                 \hspace{\dimexpr \marginleft+\marginright}%
                 \@mainbar
@@ -415,7 +414,7 @@
 \newcommand{\skill}[2]{%
     \textcolor{emphasis}{\textbf{#1}}\hfill
     \foreach \x in {1,...,5}{%
-      \space{\ifnumgreater{\x}{#2}{\color{gray}\faCircleO}{\color{accent}\faCircle}}}\par%
+      \space{\ifnumgreater{\x}{#2}{\color{gray}\faCircle[regular]}{\color{accent}\faCircle}}}\par%
 }
 
 % skill without any charts
