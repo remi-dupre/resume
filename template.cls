@@ -50,6 +50,7 @@
 \RequirePackage{xcolor}
 \RequirePackage{fontawesome5}
 \RequirePackage{academicons}
+\RequirePackage{calc}
 
 
 
@@ -263,8 +264,8 @@
                     {\Huge\bfseries\color{headerfontcolor}\MakeUppercase{\@name}\par}
                 \end{minipage}%
                 \vfill%
-                \begin{minipage}[b][\dimexpr \headerheight-2em-\marginbottom]{\linewidth}%
-                    {\large\bfseries\color{headerfontcolor}\@tagline\par}
+                \begin{minipage}[t][\headerheight-\marginbottom]{\linewidth-2em}%
+                  {\vspace{1em}\large\bfseries\color{headerfontcolor}\@tagline\par}
                 \end{minipage}%
         % finish the minipages for text and photo if photo is given
         \ifdef{\@photodiameter}{%
@@ -296,10 +297,10 @@
 % contact info
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\infofield}[2]{\mbox{\makebox[5mm]{\textcolor{accent}{\normalsize #1}}\hspace{0.5em}#2}\vspace{0.2em}\newline}
+\newcommand{\infofield}[2]{\mbox{\makebox[5mm]{\textcolor{accent}{\normalsize \raisebox{-1pt}{#1}}}\hspace{0.3em}#2}\vspace{0.2em}\newline}
 \newcommand{\email}[1]{\infofield{\faEnvelope}{\href{mailto:#1}{#1}}}
 \newcommand{\address}[1]{\infofield{\faAt}{#1}}
-\newcommand{\location}[1]{\infofield{\faMapMarker}{#1}}
+\newcommand{\location}[1]{\infofield{\faMapMarker*}{#1}}
 \newcommand{\phone}[1]{\infofield{\faPhone}{#1}}
 \newcommand{\homepage}[2]{\infofield{\faHome}{\href{#2}{#1}}}
 \newcommand{\linkedin}[2]{\infofield{\faLinkedin}{\href{#2}{#1}}}
@@ -377,13 +378,13 @@
 % set length of date/place column versus position column in fraction of linewidth before linewidth gets redefined in minipages
 \newlength{\jobdateplacelength}
 \newlength{\jobpositionlength}
-\setlength{\jobdateplacelength}{0.4\linewidth}
-\setlength{\jobpositionlength}{0.45\linewidth}
+\setlength{\jobdateplacelength}{0.5\linewidth}
+\setlength{\jobpositionlength}{0.35\linewidth}
 \newcommand{\job}[4]{%
     \begin{minipage}[t]{\jobdateplacelength}% minipage for left column with date/place
         \footnotesize
         \begin{minipage}[t]{3mm}% wrap marker in minipage to allow multi-line dates
-            \makebox[3mm][c]{\faCalendar}
+          \makebox[3mm][c]{\faCalendar*[regular]}
         \end{minipage}%
         \hspace{0.5em}%
         \begin{minipage}[t]{\dimexpr \jobdateplacelength-3mm-0.5em}% wrap date in minipage to allow multi-line dates
@@ -392,7 +393,7 @@
         \par
         \vspace{0.1em}
         \begin{minipage}[t]{3mm}% wrap marker in minipage to allow multi-line places
-            \makebox[3mm][c]{\faMapMarker}
+            \makebox[3mm][c]{\faMapMarker*}
         \end{minipage}%
         \hspace{0.5em}%
         \begin{minipage}[t]{\dimexpr \jobdateplacelength-3mm-0.5em}% wrap place in minipage to allow multi-line places
@@ -414,7 +415,7 @@
 \newcommand{\skill}[2]{%
     \textcolor{emphasis}{\textbf{#1}}\hfill
     \foreach \x in {1,...,5}{%
-      \space{\ifnumgreater{\x}{#2}{\color{gray}\faCircle[regular]}{\color{accent}\faCircle}}}\par%
+      \tiny\space{\ifnumgreater{\x}{#2}{\color{gray}\faCircle[regular]}{\color{accent}\faCircle}}}\par%
 }
 
 % skill without any charts
@@ -540,11 +541,11 @@
     \vspace{0.25em}%
     \ifstrequal{#4}{}{%
         \begin{minipage}[t]{\dimexpr \pubdatelength+\pubjournallength-1.0em}%
-            \footnotesize \makebox[3mm][c]{\faCalendar} \hspace{0.25em} #3
+            \footnotesize \makebox[3mm][c]{\faCalendar*} \hspace{0.25em} #3
         \end{minipage}%
     }{%
         \begin{minipage}[t]{\dimexpr \pubdatelength-1.0em}%
-            \footnotesize \makebox[3mm][c]{\faCalendar} \hspace{0.25em} #3
+            \footnotesize \makebox[3mm][c]{\faCalendar*} \hspace{0.25em} #3
         \end{minipage}%
     }%
     \hspace{1.0em}
@@ -590,6 +591,14 @@
 
 \RequirePackage{enumitem}
 \setlist[itemize]{noitemsep, topsep=0pt, leftmargin=1em}
+
+% ---
+% --- Fix LaTeX logo with default font
+% ---
+
+\RequirePackage{metalogo}
+\setlogokern{La}{-.24em}
+\setlogokern{aT}{-.05em}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
