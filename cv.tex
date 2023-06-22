@@ -1,0 +1,223 @@
+\documentclass[%singlesided,
+               doublesided,
+               paper=a4,
+               fontsize=10pt
+              ]{template}
+
+\hypersetup{%
+  pdfborderstyle={/S/U/W 1},
+  urlbordercolor=gray
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength\highlightwidth{8cm}
+\setlength\headerheight{4cm}            % note that margintop gets added to this value, i.e. the header bar is 5cm
+\setlength\marginleft{1cm}
+\setlength\marginright{\marginleft}      % needs to be 1.5 times to be actually equal. why?
+\setlength\margintop{1cm}
+\setlength\marginbottom{1cm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FONTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{fontspec}
+\setmainfont{Carlito}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COLORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\colorlet{highlightbarcolor}{lightgray}
+\colorlet{headerbarcolor}{darkgray}
+
+\colorlet{headerfontcolor}{white}
+\colorlet{accent}{awesome-red}
+\colorlet{heading}{black}
+\colorlet{emphasis}{black}
+\colorlet{body}{black}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\name{Rémi DUPRÉ}
+\tagline{
+  Interested in back-end, low level programming, algorithmic and privacy.
+  \\ \\ \\
+}
+\photo[round]{../2022-08-28 Photo.jpg}{\dimexpr \headerheight-\marginbottom}   % make photo exactly match the header with margintop/marginright/marginbottom as margin
+
+\makeheader
+
+\highlightbar{
+
+  \section{Contact}
+    \email{remi@dupre.io}
+    \phone{+33 6 13 60 25 27}
+    \location{Paris}
+    \github{remi-dupre}{https://github.com/remi-dupre/}
+    \linkedin{Rémi Dupré}{https://www.linkedin.com/in/r\%C3\%A9mi-dupr\%C3\%A9-351713190/}
+
+  \section{Skills}
+    \skillsection{Programming}
+      \skill{Rust}{5}
+      \skill{Python}{5}
+      \skill{C++}{4}
+      \skill{Algorithmic}{4}
+      \skill{Javascript, OCaml, Scala}{2}
+
+    \vspace{0.5em}
+    \skillsection{Databases}
+      \skill{SQL}{4}
+      \skill{Elasticsearch}{4}
+      \skill{Redis}{2}
+
+    \vspace{0.5em}
+    \skillsection{Tools}
+      \skill{Git}{5}
+      \skill{Docker}{4}
+      \skill{kubectl / argocd}{3}
+
+    % \vspace{0.5em}
+    % \skillsection{Another skill subsection header}
+    %   You can also put simply text here without the dots.
+
+    \vspace{0.5em}
+    \skillsection{Languages}
+      \skill{French}{5}
+      \skill{English}{4}
+      \skill{German}{1}
+
+  % \section{Job Preferences}
+
+  \section{Hobbies}
+
+    \simpleskill{Indy Gaming}
+    \simpleskill{Board Games}
+    \simpleskill{Reading}
+
+    \bigskip
+}
+\mainbar{
+
+  \section[\faGears]{Work history}
+
+    \job{February 2023 - Now}
+      {SNCF Réseau / Portalia, St. Denis}
+      {Backend developer}
+      {
+          Backend and Data Engineering tasks at DGEX Solutions.
+      }
+
+    \job{October 2019 - January 2023}
+      {Qwant, Paris}
+      {Backend GIS developer}
+      {
+        Backend developer on Qwant Maps, a web map service which is mostly open source:
+        \begin{itemize}
+          \item Core contributions to the Bragi \href{https://github.com/hove-io/mimirsbrunn}
+            {geocoder} and its ecosystem. \emph{(Rust, Elasticsearch)}
+          \item Development of \href{https://github.com/Qwant/fafnir}
+            {importer tools} for the geocoder that are specific to Qwant. \emph{(Rust)}
+          \item Development of an \href{https://github.com/qwant/addresses-importer}
+            {address aggregator}. (Rust)
+          \item Development of the core \href{https://github.com/qwant/idunn}{Rest API}.
+            \emph{(Python)}
+          \item Development of a fork of \href{https://github.com/openmaptiles/openmaptiles}
+            {OpenMapTiles} for custom tile generation. \emph{(Python, PostgreSQL)}
+          \item Maintenance of k8s services and pipelines. \emph{(Argo Workflows, ArgoCD)}
+        \end{itemize}
+      }
+
+  \section[\faMortarBoard]{Education}
+
+    \job{2016 - 2019}
+      {École Normale Supérieure de Paris-Saclay}
+      {Master MPRI}
+      {}
+
+    \job{2014 - 2016}
+      {Lycée Chaptal, Paris}
+      {Preparatory class}
+      {Intensive 2-year program in preparation to sit the national competitive
+      exams for admission to the French Grandes Écoles, Math and Physics section}
+
+  \section[\faUniversity]{Research Internships}
+
+    \job{March 2019 - August 2019}
+      {ENS Paris \& T. Paristech}
+      {M2}
+      {
+        Efficient evaluation of regular patterns for information extraction,
+        with Antoine Amarilli and Pierre Senellart
+        (\href{https://github.com/remi-dupre/enum-spanner-rs}{remi-dupre/enum-spanner-rs})
+      }
+
+    \job{March 2018 - August 2018}
+      {UiB, Norway}
+      {M1}
+      {
+        Traditional union-find algorithm on a hybrid parallel computer with,
+        Fredrik Manne
+        (\href{https://github.com/remi-dupre/rem-distributed-c}{remi-dupre/rem-distributed-c})
+      }
+
+    \job{June 2017 - July 2017}
+      {University of Lille}
+      {L3}
+      {Steganalysis applied to a large database, with Patrick Bas}
+
+    \section[\faCoffee]{Areas of interest (Work related)}
+
+      \achievement
+        {Prologin association member from 2019 to 2021}
+        {
+          \href{https://prologin.org/}{Prologin} organizes a programming contest for students below
+          21 and \href{https://girlscancode.fr/}{“Girls Can Code!”}, an initiation to informatics
+          summer camps for youth girls. My contribution:
+          \begin{itemize}
+            \item Building algorithmic problems.
+            \item Maintaining existing website and refactoring the older website of “Girls Can Code!”.
+            \item Organising local contests and helping design a game for AIs to compete during the
+              final event.
+          \end{itemize}
+        }
+
+
+      \vspace{0.3em}
+      \achievement
+        {Competitive programming}
+        {
+          Participation to competitive programming contests:
+          \begin{itemize}
+            \item Online events (most recently HackerCup 2021).
+            \item ACM SWERC: Porto in 2016 (54), Paris in 2017 (17) and 2018 (25).
+            \item Prologin from 2014 to 2017 ($12^{th}$ in 2014, $12^{th}$ in
+                2015, $28^{th}$ in 2016 and $43^{th}$ in 2017).
+          \end{itemize}
+        }
+
+      % \vspace{0.3em}
+      % \achievement
+      %   {Robotics}
+      %   {
+      %     Member of a local club from 2010 to 2015: use of microchips, design
+      %     of stratospheric probes for C’Space (an aerospace event for
+      %     students organised by the CNES).
+      %   }
+
+}
+\makebody
+\clearpage
+
+\end{document}
