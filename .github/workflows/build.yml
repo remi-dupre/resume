@@ -1,0 +1,29 @@
+name: Build LaTeX document
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: cv.tex
+          latexmk_use_xelatex: true
+
+      - name: Generate release tag
+        uses: alexvingg/next-release-tag@v1.0.4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tag_prefix: ""
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: github.ref == 'refs/heads/master'
+        with:
+          name: Release ${{ steps.generate_release_tag.outputs.release_tag }}
+          tag_name: ${{ steps.generate_release_tag.outputs.release_tag }}
+          files: cv.pdf

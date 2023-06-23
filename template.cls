@@ -34,7 +34,6 @@
     {\PassOptionsToClass{twoside}{scrartcl}}
 \LoadClass{scrartcl}
 
-
 % ---
 % --- Filter Irrelevant Warnings
 % ---
@@ -71,7 +70,6 @@
 % minipage has an annoying af indent that must be removed
 \setlength{\parindent}{0pt}
 
-
 % ---
 % --- Colors
 % ---
@@ -106,7 +104,6 @@
 \definecolor{awesome-nephritis}{HTML}{27AE60}
 \definecolor{awesome-concrete}{HTML}{95A5A6}
 \definecolor{awesome-darknight}{HTML}{131A28}
-
 
 % ---
 % --- Colored Bars
@@ -332,7 +329,6 @@
 % Redefine section in caps, bold and with rule below
 \renewcommand{\section}[2][]{%
   \bigskip%
-  % \ifstrequal{#1}{}{}{\marginpar{\vspace*{\dimexpr 1pt-\baselineskip}\raggedright\input{#1}}}%
   \ifstrequal{#1}{}{}{\large \makebox[5mm][c]{#1}\hspace{0.5em}}
   {\color{heading}\Large\bfseries\MakeUppercase{#2}}\\[-1ex]%
   {\color{heading}\rule{\linewidth}{1.0pt}\par}\smallskip
@@ -457,7 +453,8 @@
       } \edef\textalign{\pgfmathresult}
       \pgfmathsetmacro\labelshiftdir{1-2*(-\midangle<180)}
 
-      % Draw the color segments. Somehow, the \midrow units got lost, so we add 'pt' at the end. Not nice...
+      % Draw the color segments. Somehow, the \midrow units got lost, so we add
+      % 'pt' at the end. Not nice...
       \filldraw[draw=white,fill=\colour] (-\cumnum:\outerradius) arc (-\cumnum:-(\newcumnum):\outerradius) --
       (-\newcumnum:\innerradius) arc (-\newcumnum:-(\cumnum):\innerradius) -- cycle;
 
@@ -467,7 +464,6 @@
       \global\let\cumnum=\newcumnum
       }
     \end{scope}
-%      \draw[gray] (0,0) circle (\outerradius) circle (\innerradius);
   \end{tikzpicture}\par
   \endgroup
 }
@@ -493,7 +489,8 @@
     \setlength{\publinklength}{0.20\linewidth}
 }
 
-% Helper function to force the publication to use the full width in normal page styles without highlight bar or header
+% Helper function to force the publication to use the full width in normal page
+% styles without highlight bar or header
 \newcommand{\pubforcefullwidth}{%
     \setlength{\pubdatelength}{0.1\textwidth}
     \setlength{\pubjournallength}{0.8\textwidth}
@@ -545,8 +542,8 @@
   \vspace{1.0em}
 }
 
-% achievement
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Achievement
+% ---
 
 \newcommand{\achievement}[2]{%
   \begin{minipage}[t]{3mm}%
