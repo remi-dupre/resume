@@ -15,6 +15,7 @@ jobs:
           latexmk_use_xelatex: true
 
       - name: Generate release tag
+        id: release_tag
         uses: alexvingg/next-release-tag@v1.0.4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -24,6 +25,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: github.ref == 'refs/heads/master'
         with:
-          name: Release ${{ steps.generate_release_tag.outputs.release_tag }}
-          tag_name: ${{ steps.generate_release_tag.outputs.release_tag }}
+          name: Release ${{ steps.release_tag.outputs.release_tag }}
+          tag_name: ${{ steps.release_tag.outputs.release_tag }}
           files: cv.pdf
