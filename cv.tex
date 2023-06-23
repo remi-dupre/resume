@@ -1,60 +1,42 @@
-\documentclass[%singlesided,
-               doublesided,
-               paper=a4,
-               fontsize=10pt
-              ]{template}
+\documentclass[
+  singlesided, % doublesided
+  paper=a4,
+  fontsize=10pt
+]{template}
 
 \hypersetup{%
   pdfborderstyle={/S/U/W 1},
   urlbordercolor=gray
 }
 
-\RequirePackage{graphicx}
-\RequirePackage{tikz}
-
-% ---
-% --- Set Geometry
-% ---
-
-\setlength\highlightwidth{8cm}
-\setlength\headerheight{3cm}            % note that margintop gets added to this value, i.e. the header bar is 5cm
-\setlength\marginleft{1cm}
-\setlength\marginright{\marginleft}      % needs to be 1.5 times to be actually equal. why?
-\setlength\margintop{0cm}
-\setlength\marginbottom{5mm}
-
-
-% ---
-% --- Fonts
-% ---
-
+% Fonts
 \RequirePackage{fontspec}
 \setmainfont{Carlito}
 
-
-% ---
-% --- Colors
-% ---
-
+% Colors
 \colorlet{highlightbarcolor}{lightgray}
 \colorlet{headerbarcolor}{darkgray}
-
 \colorlet{headerfontcolor}{white}
 \colorlet{accent}{awesome-red}
 \colorlet{heading}{black}
 \colorlet{emphasis}{black}
 \colorlet{body}{black}
 
+% Geometry
+\setlength\highlightwidth{8cm}
+\setlength\headerheight{3cm}
+\setlength\marginleft{1cm}
+\setlength\marginright{\marginleft}
+\setlength\margintop{0cm}
+\setlength\marginbottom{10mm}
 
-% ---
-% --- Set Document
-% ---
-
+% i18n helpers
 \newif\ifen
 \newif\iffr
 \newcommand{\en}[1]{\ifen#1\fi}
 \newcommand{\fr}[1]{\iffr#1\fi}
 
+% Generate page for a single language
 \newcommand{\genlang}[1]{
   % Enable targeted language
   \let#1\iftrue
@@ -451,12 +433,10 @@
   \end{tikzpicture}
 
   \clearpage
-
-  % Disable targeted language
-  \let#1\iffalse
+  \let#1\iffalse % disable targeted language
 }
 
-
+% Final rendering
 \begin{document}
   \genlang{\iffr}
   \genlang{\ifen}
