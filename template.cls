@@ -374,7 +374,7 @@
   \end{minipage}%
   \ifstrequal{#4}{}{}{\par \vspace{0.3em} \footnotesize #4}
   \par\normalsize
-  \vspace{1em}
+  \vspace{0.8em}
 }
 
 
