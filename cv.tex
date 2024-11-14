@@ -1,4 +1,4 @@
-\documentclass[
+\documentclass[1
   singlesided, % doublesided
   paper=a4,
   fontsize=10pt
@@ -39,11 +39,14 @@
 
   \name{Rémi DUPRÉ}
   \tagline{%
-    \fr{%
-      Intéressé par la programmation backend, la programmation système et
-      l'algorithmique.
+    \fr{
+      Développeur back-end
+      \newline
+      Intéressé par la programmation backend, la programmation système et l'algorithmique.
     }
     \en{%
+      Backend developer
+      \newline
       Interested in back-end, low level programming and algorithmic.
     }
   }
@@ -59,7 +62,7 @@
       }
       \location{Paris}
       \github{remi-dupre}{https://github.com/remi-dupre/}
-      \linkedin{Rémi Dupré}{https://www.linkedin.com/in/r\%C3\%A9mi-dupr\%C3\%A9-351713190/}
+      \linkedin{rémi-dupré-351713190}{https://www.linkedin.com/in/r\%C3\%A9mi-dupr\%C3\%A9-351713190/}
 
     \section{%
       \fr{Compétences}%
@@ -83,7 +86,7 @@
         \fr{Bases de données}%
         \en{Databases}%
       }
-        \skill{SQL}{4}
+        \skill{PostgresSQL}{4}
         \skill{Elasticsearch}{4}
         \skill{RabbitMQ}{3}
         \skill{Redis}{2}
@@ -98,7 +101,6 @@
         \skill{kubectl / helm}{3}
 
       \vspace{0.5em}
-
       \skillsection{%
         \fr{Bureautique}%
         \en{Office}
@@ -107,7 +109,6 @@
         \skill{\LaTeX}{4}
 
       \vspace{0.5em}
-
       \skillsection{%
         \fr{Langues}%
         \en{Languages}
@@ -124,10 +125,6 @@
           \fr{Allemand}%
           \en{German}
         }{1}
-
-      % \vspace{0.5em}
-      % \skillsection{Another skill subsection header}
-      %   You can also put simply text here without the dots.
 
     \section{%
       \fr{Loisirs}%
@@ -389,35 +386,46 @@
         \fr{Extra Professionnel}%
         \en{Areas of interest (Work related)}%
       }
-        \achievement
+        \achievement{\faGithub*}
           {%
-            \fr{Membre de l'association Prologin de 2019 à 2021}%
-            \en{Prologin association member from 2019 to 2021}%
+            \fr{Projets personnels}%
+            \en{Pet projets}%
           }
           {%
             \fr{%
-              \href{https://prologin.org/}{Prologin} organise un concours de
-              programmation pour les moins de 21 ans et
-              \href{https://girlscancode.fr/}{“Girls Can Code!”}, un stage
-              d'introduction à la programmation pour les jeunes filles. J'ai
-              contribué par la rédaction de problèmes algorithmiques, le
-              développement des sites de l'association, l'organisation des
-              épreuves régionales et la conception d'un jeu sur lequel faire
-              concourir des IA lors de l'épreuve finale.
+              Développement d'une flopée de petits projets, par exemple une
+              \href{https://github.com/remi-dupre/opening-hours-rs/}{bibliothèque}
+              de parsing du format d'ouverture dans OpenStreetMap, un
+              \href{https://github.com/remi-dupre/pinix}{front alternatif} pour
+              Nix, \href{https://github.com/remi-dupre/}{...}
             }
             \en{%
-              \href{https://prologin.org/}{Prologin} organizes a programming
-              contest for students below 21 and
-              \href{https://girlscancode.fr/}{“Girls Can Code!”}, an initiation
-              to informatics summer camps for youth girls. I contributed by
-              writing algorithmic problems, maintaining the websites,
-              organising local contests and helping design a game for AIs to
-              compete during the final event.
+              Development of a bunch of toy projects, for example a parsing
+              \href{https://github.com/remi-dupre/opening-hours-rs/}{library}
+              for OpenStreetMap's opening hours format, an
+              \href{https://github.com/remi-dupre/pinix}{alternative frontend}
+              for Nix, \href{https://github.com/remi-dupre/}{...}
+            }
+          }
+
+        \achievement{\faSchool}
+          {%
+            \fr{Membre de l'association \href{https://prologin.org/}{Prologin} de 2019 à 2022}%
+            \en{\href{https://prologin.org/}{Prologin} association member from 2019 to 2022}%
+          }
+          {%
+            \fr{%
+              Encadrement d'un concours de programmation pour adolescents et
+              des stages d'initiation à l'informatique pour jeunes filles.
+            }
+            \en{%
+              Organisation of a programming contest for teenagers and
+              initiation to informatics summer camps for young girls.
             }
           }
 
         \vspace{0.3em}
-        \achievement
+        \achievement{\faTrophy}
           {%
             \fr{Compétitions de programmation}%
             \en{Competitive programming}%
@@ -442,7 +450,7 @@
   \makebody
 
   \begin{tikzpicture}[remember picture, overlay]
-    \node [anchor=north west, fill=white, rounded corners=2pt, inner sep=1pt, outer sep=2mm] at (current page.north west)
+    \node [anchor=north east, fill=white, rounded corners=2pt, inner sep=1pt, outer sep=2mm] at (current page.north east)
       {%
         \fr{\includegraphics[page=1,width=6mm]{assets/flag-fr.pdf}}%
         \en{\includegraphics[page=1,width=6mm]{assets/flag-en.pdf}}%

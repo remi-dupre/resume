@@ -226,12 +226,22 @@
 % Assemble the header
 \newcommand{\makeheader}{% header bar is a minipage
   \begin{minipage}[t][\headerheight]{\textwidth}%
-    \vspace{\dimexpr \@namefontheight-\@namelineheight}                     % align top of name and photo
-      % Create two minipages for header text and photo if photo is given
-      \ifdef{\@photodiameter}{
-        \begin{minipage}[t]{\dimexpr \textwidth-\@photodiameter}        % to top align name and photo add [t] here
-          \vspace{0cm}%
-      }{}
+    \vspace{\dimexpr \@namefontheight-\@namelineheight}
+      % Photo
+      \begin{minipage}[t]{\@photodiameter} % to top align name and photo add [t] here
+        \vspace{0cm}
+        % Format as square or round
+        \ifthenelse{\equal{\@photoformat}{square}}{%
+          \includegraphics[width=\linewidth]{\@photo}%
+        }{%
+          \tikz\path[fill overzoom image={\@photo}]circle[radius=0.5\linewidth];
+        }
+      \end{minipage}%
+      % Spacer
+      \hspace{2em}
+      % Header text
+      \begin{minipage}[t]{\dimexpr \textwidth-\@photodiameter-2cm}
+        \vspace{0cm}%
         % Print the header text
         \begin{minipage}[t][2em]{\linewidth}
           {\Huge\bfseries\color{headerfontcolor}\MakeUppercase{\@name}\par}
@@ -240,19 +250,7 @@
         \begin{minipage}[t][\headerheight-\marginbottom]{\linewidth-2em}%
           {\vspace{1em}\large\bfseries\color{headerfontcolor}\@tagline\par}
         \end{minipage}%
-      % Pinish the minipages for text and photo if photo is given
-      \ifdef{\@photodiameter}{%
-        \end{minipage}\hfil%
-        \begin{minipage}[t]{\@photodiameter} % to top align name and photo add [t] here
-          \vspace{0cm}
-          % Format as square or round
-          \ifthenelse{\equal{\@photoformat}{square}}{%
-            \includegraphics[width=\linewidth]{\@photo}%
-          }{%
-            \tikz\path[fill overzoom image={\@photo}]circle[radius=0.5\linewidth];
-          }
-        \end{minipage}%
-      }{}
+      \end{minipage}\hfil%
   \end{minipage}%
 }
 
@@ -267,7 +265,7 @@
 % Contact info
 % ---
 
-\newcommand{\infofield}[2]{\mbox{\makebox[5mm]{\textcolor{accent}{\normalsize \raisebox{-1pt}{#1}}}\hspace{0.3em}#2}\vspace{0.2em}\newline}
+\newcommand{\infofield}[2]{\mbox{\makebox[5mm]{\textcolor{accent}{\normalsize \raisebox{-1pt}{#1}}}\hspace{0.3em}#2}\vspace{0.2em}\hfill\par}
 \newcommand{\email}[1]{\infofield{\faEnvelope}{\href{mailto:#1}{#1}}}
 \newcommand{\address}[1]{\infofield{\faAt}{#1}}
 \newcommand{\location}[1]{\infofield{\faMapMarker*}{#1}}
@@ -545,15 +543,15 @@
 % Achievement
 % ---
 
-\newcommand{\achievement}[2]{%
+\newcommand{\achievement}[3]{%
   \begin{minipage}[t]{3mm}%
-    \makebox[3mm][c]{\footnotesize \faTrophy}
+    \makebox[3mm][c]{\footnotesize #1}
   \end{minipage}%
   \hspace{0.5em}%
   \begin{minipage}[t]{\dimexpr \textwidth-0.5em-3mm}%
-    {\normalsize #1\par}
+    {\normalsize #2\par}
   \end{minipage}%
-  \ifstrequal{#2}{}{}{\par \vspace{0.1em} \footnotesize #2}
+  \ifstrequal{#2}{}{}{\par \vspace{0.1em} \footnotesize #3}
   \par
   \vspace{0.5em}
 }
